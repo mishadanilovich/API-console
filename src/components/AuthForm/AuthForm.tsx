@@ -2,12 +2,18 @@ import React, { useState } from 'react'
 import { Formik } from 'formik'
 import { Button } from '../Button'
 import { StyledInput } from '../StyledField'
+import { Notification } from '../Notification'
 
 import { Values } from './types'
 import { authValidationSchema } from './authFormValidation'
 
 import { AuthContainer, StyledForm } from './styles'
-import { Notification } from '../Notification'
+import {
+  LOGIN,
+  LOGIN_LABEL,
+  PASSWORD_LABEL,
+  SUB_LOGIN_LABEL,
+} from '../../constants'
 
 export const AuthForm: React.FC = () => {
   const [isSubmittingError] = useState(false)
@@ -36,20 +42,20 @@ export const AuthForm: React.FC = () => {
             <StyledInput
               id="login"
               name="login"
-              textLabel="Логин"
+              textLabel={LOGIN_LABEL}
               isError={!!errors.login && !!touched.login}
             />
             <StyledInput
               id="subLogin"
               name="subLogin"
-              textLabel="Сублогин"
+              textLabel={SUB_LOGIN_LABEL}
               isError={!!errors.subLogin && !!touched.subLogin}
               isOptional
             />
             <StyledInput
               id="password"
               name="password"
-              textLabel="Пароль"
+              textLabel={PASSWORD_LABEL}
               type="password"
               isError={!!errors.password && !!touched.password}
             />
@@ -59,7 +65,7 @@ export const AuthForm: React.FC = () => {
               className="button"
               disabled={!(Object.keys(errors).length === 0)}
             >
-              Войти
+              {LOGIN}
             </Button>
           </StyledForm>
         )}
