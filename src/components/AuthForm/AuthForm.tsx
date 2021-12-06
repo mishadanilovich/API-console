@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Formik } from 'formik'
 import { Notification, StyledInput, Button } from '../../components'
 
 import { Values } from './types'
 import { authValidationSchema } from './authFormValidation'
-
 import { AuthContainer, StyledForm } from './styles'
 import {
   LOGIN,
@@ -12,9 +11,13 @@ import {
   PASSWORD_LABEL,
   SUB_LOGIN_LABEL,
 } from '../../constants'
+import { AuthContext } from '../../hoc'
 
 export const AuthForm: React.FC = () => {
   const [isSubmittingError] = useState(false)
+  const [isLoading] = useState(false)
+
+  const { setIsAuth } = useContext(AuthContext)
 
   return (
     <AuthContainer>
@@ -33,7 +36,10 @@ export const AuthForm: React.FC = () => {
           password: '',
         }}
         validationSchema={authValidationSchema}
-        onSubmit={(values: Values): void => console.log(values)}
+        onSubmit={(values: Values): void => {
+          console.log(values, 'Values')
+          setIsAuth(true)
+        }}
       >
         {({ errors, touched }) => (
           <StyledForm>
@@ -62,6 +68,7 @@ export const AuthForm: React.FC = () => {
               type="submit"
               className="button"
               disabled={!(Object.keys(errors).length === 0)}
+              isLoading={isLoading}
             >
               {LOGIN}
             </Button>
