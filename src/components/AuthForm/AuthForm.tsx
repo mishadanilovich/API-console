@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { Formik } from 'formik'
-import { Button } from '../Button'
-import { StyledInput } from '../StyledField'
-import { Notification } from '../Notification'
+import { Notification, StyledInput, Button } from '../../components'
 
 import { Values } from './types'
 import { authValidationSchema } from './authFormValidation'
