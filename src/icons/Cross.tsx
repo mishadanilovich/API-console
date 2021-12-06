@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Cross = (
   props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
-) => {
+): JSX.Element => {
   return (
     <svg
       {...props}
