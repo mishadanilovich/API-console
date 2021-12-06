@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
-import { HeaderContainer, LogoutContainer, Separator, UserInfo } from './styles'
 import { DefaultScreen, FullScreen, Logout } from '../../../../icons'
+import {
+  HeaderContainer,
+  LogoutButton,
+  ScreenButton,
+  Separator,
+  UserInfo,
+} from './styles'
+
 import { LOGOUT } from '../../../../constants'
 
 export const HeaderAction = (): JSX.Element => {
@@ -11,11 +18,17 @@ export const HeaderAction = (): JSX.Element => {
       <UserInfo>
         some@email.com<Separator>:</Separator>sublogin
       </UserInfo>
-      <LogoutContainer>
+      <LogoutButton>
         {LOGOUT}
         <Logout />
-      </LogoutContainer>
-      {isFullScreen ? <FullScreen /> : <DefaultScreen />}
+      </LogoutButton>
+      <ScreenButton>
+        {isFullScreen ? (
+          <DefaultScreen className="screen-icon" />
+        ) : (
+          <FullScreen className="screen-icon" />
+        )}
+      </ScreenButton>
     </HeaderContainer>
   )
 }

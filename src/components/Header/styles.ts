@@ -10,7 +10,7 @@ export const StyledHeader = styled.div`
 
 export const Title = styled.div`
   display: flex;
-  //align-items: center;
+  align-items: center;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;

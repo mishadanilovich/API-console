@@ -23,8 +23,42 @@ export const Separator = styled.span`
   color: ${(props) => props.theme.colors.lightBlack};
 `
 
-export const LogoutContainer = styled.div`
+export const LogoutButton = styled.button`
   display: flex;
   align-items: center;
   column-gap: 8px;
+
+  border: none;
+  outline: none;
+  background: none;
+`
+
+export const ScreenButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  .screen-icon {
+    transition: stroke 0.2s;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+
+    .screen-icon {
+      stroke: ${(props) => props.theme.colors.blue};
+    }
+  }
+
+  &:focus {
+    border: ${(props) => props.theme.borders.lightBlue};
+    border-radius: 7px;
+  }
 `
