@@ -5,5 +5,7 @@ export const LOGIN_LABEL = 'Логин'
 export const SUB_LOGIN_LABEL = 'Сублогин'
 export const PASSWORD_LABEL = 'Пароль'
 export const LOGIN = 'Войти'
+export const LOGOUT = 'Выйти'
 
 export const GITHUB_LINK = '@mishadanilovich'
+export const APPLICATION_NAME = 'API-консолька'

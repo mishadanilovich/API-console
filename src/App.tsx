@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { AuthHoc } from './hoc'
+import { ConsolePage } from './routes'
 
 const AppContainer = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const App: React.FC = () => {
   return (
     <AppContainer>
       <AuthHoc>
-        <p>Console</p>
+        <ConsolePage />
       </AuthHoc>
     </AppContainer>
   )
