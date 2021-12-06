@@ -11,8 +11,6 @@ export const StyledButton = styled.button`
   background: ${(props) =>
     `linear-gradient(180deg, ${props.theme.colors.lightBlue} 0%, ${props.theme.colors.blue} 100%)`};
   border-radius: 5px;
-  outline: none;
-  border: none;
   transition: all 0.2s;
 
   font-family: ${(props) => props.theme.fonts[0]};

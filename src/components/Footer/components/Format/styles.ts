@@ -8,10 +8,6 @@ export const FormatContainer = styled.button`
   padding: 4px;
   min-width: 166px;
 
-  border: none;
-  outline: none;
-  background: none;
-
   font-style: normal;
   font-weight: normal;
   font-size: 16px;

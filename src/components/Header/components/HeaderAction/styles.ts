@@ -27,10 +27,6 @@ export const LogoutButton = styled.button`
   display: flex;
   align-items: center;
   column-gap: 8px;
-
-  border: none;
-  outline: none;
-  background: none;
 `
 
 export const ScreenButton = styled.button`
@@ -39,10 +35,6 @@ export const ScreenButton = styled.button`
   justify-content: center;
   width: 32px;
   height: 32px;
-
-  border: none;
-  outline: none;
-  background: none;
 
   .screen-icon {
     transition: stroke 0.2s;

@@ -68,6 +68,12 @@ const GlobalStyle = createGlobalStyle`
     line-height: 30px;
     letter-spacing: 0;
   }
+  
+  button {
+    border: none;
+    outline: none;
+    background: none;
+  }
 `
 
 export const ThemeHoc = ({ children }: Props): JSX.Element => (
