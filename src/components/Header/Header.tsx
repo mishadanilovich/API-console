@@ -4,7 +4,7 @@ import { StyledHeader, Title } from './styles'
 import { APPLICATION_NAME } from '../../constants'
 import { HeaderAction } from './components'
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
   return (
     <StyledHeader>
       <Title>
