@@ -17,6 +17,8 @@ const theme = {
   borders: {
     main: `1px solid rgba(0, 0, 0, 0.2)`,
     error: '1px solid #CF2C00',
+    blue: '2px solid #45A5FF',
+    lightBlue: '2px solid rgba(69, 165, 255, 0.5)',
   },
   boxShadow: {
     error: '0px 0px 5px rgba(207, 44, 0, 0.5)',
