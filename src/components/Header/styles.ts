@@ -6,6 +6,7 @@ export const StyledHeader = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 10px 15px;
+  border-bottom: ${(props) => props.theme.borders.main};
 `
 
 export const Title = styled.div`
