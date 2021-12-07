@@ -66,7 +66,7 @@ export const AuthForm: React.FC = () => {
 
             <Button
               type="submit"
-              className="button"
+              className="button-submit"
               disabled={!(Object.keys(errors).length === 0)}
               isLoading={isLoading}
             >

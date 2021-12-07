@@ -18,7 +18,7 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
   align-items: center;
 
-  .button {
+  .button-submit {
     margin-right: auto;
   }
 `
