@@ -8,6 +8,11 @@ export const Container = styled.div`
   padding: 5px 10px;
   border-radius: 5px;
   transition: box-shadow 0.2s;
+  position: relative;
+
+  .dropdown-container {
+    display: none;
+  }
 
   .dropdown-icon {
     margin-left: 11px;
@@ -16,6 +21,10 @@ export const Container = styled.div`
   &:hover {
     cursor: pointer;
     box-shadow: 0 1px 4px ${(props) => props.theme.colors.lightBlack};
+
+    .dropdown-container {
+      display: flex;
+    }
   }
 `
 
