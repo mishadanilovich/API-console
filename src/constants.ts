@@ -13,6 +13,9 @@ export const FORMAT_CONSOLE = 'Форматировать'
 export const GITHUB_LINK = '@mishadanilovich'
 export const APPLICATION_NAME = 'API-консолька'
 
+export const CONSOLE_QUERY_TITLE = 'Запрос:'
+export const CONSOLE_RESPONSE_TITLE = 'Ответ:'
+
 export const DROPDOWN_ACTIONS = [
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   { name: 'Выполнить', action: (): void => {}, isDestructive: false },
