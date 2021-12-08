@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 110px;
   height: 40px;
@@ -8,9 +11,7 @@ export const StyledButton = styled.button`
   background: ${(props) =>
     `linear-gradient(180deg, ${props.theme.colors.lightBlue} 0%, ${props.theme.colors.blue} 100%)`};
   border-radius: 5px;
-  outline: none;
-  border: none;
-  transition: all 0.2ms;
+  transition: all 0.2s;
 
   font-family: ${(props) => props.theme.fonts[0]};
   font-size: 16px;
@@ -21,7 +22,7 @@ export const StyledButton = styled.button`
   text-align: center;
 
   &:focus {
-    border: 2px solid #45a5ff;
+    border: ${(props) => props.theme.borders.blue};
   }
 
   &:hover,

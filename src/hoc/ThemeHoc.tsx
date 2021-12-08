@@ -9,13 +9,16 @@ const theme = {
     gray: '#999999',
     red: '#CF2C00',
     lightBlue: '#45A6FF',
-    lightGray: '#E5E5E5',
+    lightGray: '#F6F6F6',
+    lightBlack: 'rgba(0, 0, 0, 0.2)',
     lightBoxShadow: '#0000001A',
     disabled: '#C4C4C4',
   },
   borders: {
     main: `1px solid rgba(0, 0, 0, 0.2)`,
     error: '1px solid #CF2C00',
+    blue: '2px solid #45A5FF',
+    lightBlue: '2px solid rgba(69, 165, 255, 0.5)',
   },
   boxShadow: {
     error: '0px 0px 5px rgba(207, 44, 0, 0.5)',
@@ -64,6 +67,12 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     line-height: 30px;
     letter-spacing: 0;
+  }
+  
+  button {
+    border: none;
+    outline: none;
+    background: none;
   }
 `
 

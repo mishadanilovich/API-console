@@ -16,6 +16,5 @@ export const Button = ({
 }
 
 Button.defaultProps = {
-  isLoading: false,
-  text: 'Войти',
+  isLoading: false;
 }

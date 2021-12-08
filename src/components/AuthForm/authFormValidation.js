@@ -1,15 +1,16 @@
 import * as yup from 'yup'
 import { passwordRegex } from '../../regex'
+import { INCORRECT_PASSWORD, REQUIRED_FIELD } from '../../constants'
 
 export const authValidationSchema = yup.object().shape({
-  login: yup.string().required('Обязательно для заполнения'),
+  login: yup.string().required(REQUIRED_FIELD),
   subLogin: yup.string(),
   password: yup
     .string()
-    .required('Обязательно для заполнения')
+    .required(REQUIRED_FIELD)
     .test(
       'password',
-      'Неккоректный пароль',
+      INCORRECT_PASSWORD,
       (value) => value && value.match(passwordRegex)
     ),
 })
