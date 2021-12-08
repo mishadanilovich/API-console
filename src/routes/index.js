@@ -1,2 +1,2 @@
-export * from './AuthPage/AuthPage'
-export * from './ConsolePage/ConsolePage'
+export * from './AuthPage'
+export * from './ConsolePage'
