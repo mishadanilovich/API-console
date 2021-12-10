@@ -33,8 +33,6 @@ export const HeaderAction = (): JSX.Element => {
     return () => window.removeEventListener('resize', handleWidth)
   }, [])
 
-  console.log(widthWindow)
-
   return (
     <HeaderContainer>
       <UserInfo>
@@ -46,11 +44,8 @@ export const HeaderAction = (): JSX.Element => {
       </LogoutButton>
       {document.fullscreenEnabled && (
         <ScreenButton onClick={handleScreen}>
-          {isFullScreen ? (
-            <DefaultScreen className="screen-icon" />
-          ) : (
-            <FullScreen className="screen-icon" />
-          )}
+          {isFullScreen && <DefaultScreen className="screen-icon" />}
+          {!isFullScreen && <FullScreen className="screen-icon" />}
         </ScreenButton>
       )}
     </HeaderContainer>
