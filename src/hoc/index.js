@@ -1,2 +1,2 @@
-export * from './AuthHoc/AuthHoc'
+export * from './AuthHoc'
 export * from './ThemeHoc'

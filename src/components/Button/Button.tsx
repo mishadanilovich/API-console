@@ -16,5 +16,5 @@ export const Button = ({
 }
 
 Button.defaultProps = {
-  isLoading: false;
+  isLoading: false,
 }

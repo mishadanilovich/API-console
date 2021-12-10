@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { Formik } from 'formik'
 import { Notification, StyledInput, Button } from '../../components'
 
+import { AuthContext } from '../../hoc/AuthHoc'
+
 import { Values } from './types'
 import { authValidationSchema } from './authFormValidation'
 import { AuthContainer, StyledForm } from './styles'
@@ -11,7 +13,6 @@ import {
   PASSWORD_LABEL,
   SUB_LOGIN_LABEL,
 } from '../../constants'
-import { AuthContext } from '../../hoc'
 
 export const AuthForm: React.FC = () => {
   const [isSubmittingError] = useState(false)
@@ -66,7 +67,7 @@ export const AuthForm: React.FC = () => {
 
             <Button
               type="submit"
-              className="button"
+              className="button-submit"
               disabled={!(Object.keys(errors).length === 0)}
               isLoading={isLoading}
             >
