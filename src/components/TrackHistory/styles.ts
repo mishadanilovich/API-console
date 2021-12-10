@@ -25,4 +25,5 @@ export const CrossContainer = styled.div`
   border-left: ${(props) => props.theme.borders.main};
   margin-left: auto;
   box-shadow: ${(props) => props.theme.boxShadow.lightGray};
+  z-index: 1;
 `
