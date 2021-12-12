@@ -11,12 +11,17 @@ export const ConsoleContainer = styled.div`
   background: ${(props) => props.theme.colors.white};
   border-top: ${(props) => props.theme.borders.main};
   border-bottom: ${(props) => props.theme.borders.main};
+
+  .drag {
+    cursor: col-resize;
+  }
 `
 
 export const ConsoleTextareaContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: 50%;
+  width: 50%;
+  min-width: 300px;
   height: 100%;
 `
 
