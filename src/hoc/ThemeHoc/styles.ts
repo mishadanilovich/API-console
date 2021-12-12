@@ -1,7 +1,6 @@
-import React from 'react'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-const theme = {
+export const theme = {
   colors: {
     white: '#FFFFFF',
     black: '#0D0D0D',
@@ -43,11 +42,7 @@ const theme = {
   },
 }
 
-interface Props {
-  children: JSX.Element
-}
-
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   *,
   *::before,
   *::after {
@@ -79,10 +74,3 @@ const GlobalStyle = createGlobalStyle`
     background: none;
   }
 `
-
-export const ThemeHoc = ({ children }: Props): JSX.Element => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    {children}
-  </ThemeProvider>
-)
