@@ -27,7 +27,20 @@ export const LogoutButton = styled.button`
   display: flex;
   align-items: center;
   column-gap: 8px;
-  cursor: pointer;
+
+  .logout-icon {
+    transition: stroke 0.2s;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: ${(props) => props.theme.colors.blue};
+
+    .logout-icon {
+      stroke: ${(props) => props.theme.colors.blue};
+    }
+  }
 `
 
 export const ScreenButton = styled.button`
