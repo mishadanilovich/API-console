@@ -26,6 +26,7 @@ export const ConsoleTextareaTitle = styled.p`
   font-size: 12px;
   line-height: 20px;
   color: ${(props) => props.theme.colors.gray};
+  user-select: none;
 `
 
 export const ConsoleTextarea = styled.textarea`

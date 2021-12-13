@@ -11,7 +11,8 @@ export const TrackHistoryContent = styled.div`
   align-items: center;
   column-gap: 10px;
   padding: 10px 0 10px 15px;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 `
 
 export const CrossContainer = styled.div`
@@ -24,4 +25,5 @@ export const CrossContainer = styled.div`
   border-left: ${(props) => props.theme.borders.main};
   margin-left: auto;
   box-shadow: ${(props) => props.theme.boxShadow.lightGray};
+  z-index: 1;
 `
