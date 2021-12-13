@@ -1,1 +1,1 @@
-export * from './authorizationReducer'
+export * from './authReducer'
