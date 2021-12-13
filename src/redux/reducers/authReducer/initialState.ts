@@ -5,4 +5,5 @@ export const initialState: InitialState = {
   sessionKey: null,
   login: null,
   subLogin: null,
+  error: '',
 }

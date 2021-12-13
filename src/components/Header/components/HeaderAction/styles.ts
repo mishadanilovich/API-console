@@ -27,6 +27,7 @@ export const LogoutButton = styled.button`
   display: flex;
   align-items: center;
   column-gap: 8px;
+  cursor: pointer;
 `
 
 export const ScreenButton = styled.button`

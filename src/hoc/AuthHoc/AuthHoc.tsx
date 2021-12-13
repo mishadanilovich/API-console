@@ -1,22 +1,32 @@
-import React, { createContext, useMemo, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Cookies from 'js-cookie'
 import { AuthPage } from '../../routes'
-import { AuthProps, Props } from './types'
-
-export const AuthContext = createContext<AuthProps>({
-  isAuth: false,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setIsAuth: () => {},
-})
+import { authenticateSuccess } from '../../redux/actions'
+import { RootState } from '../../redux'
+import { Props } from './types'
 
 export const AuthHoc = ({ children }: Props): JSX.Element => {
-  const [isAuth, setIsAuth] = useState(false)
-  const value = useMemo(() => ({ isAuth, setIsAuth }), [isAuth])
+  const dispatch = useDispatch()
 
-  return (
-    <>
-      <AuthContext.Provider value={value}>
-        {!isAuth ? <AuthPage /> : children}
-      </AuthContext.Provider>
-    </>
+  useEffect(() => {
+    const isAuth = Cookies.get('sendsay_session')
+    if (isAuth) {
+      const login = Cookies.get('user_login')
+      const subLogin = Cookies.get('user_subLogin')
+      dispatch(
+        authenticateSuccess({
+          sessionKey: isAuth,
+          login: login,
+          subLogin: subLogin,
+        })
+      )
+    }
+  }, [])
+
+  const isLoggedIn = useSelector(
+    (state: RootState) => !!state.auth.sessionKey?.length
   )
+
+  return <>{!isLoggedIn ? <AuthPage /> : children}</>
 }

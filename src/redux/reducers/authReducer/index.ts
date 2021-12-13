@@ -16,18 +16,25 @@ export const authReducer = (state = initialState, action: Action) => {
         sessionKey: action.payload?.sessionKey,
         login: action.payload?.login,
         subLogin: action.payload?.subLogin,
+        error: '',
       }
     case ActionTypes.AUTHENTICATE_FAILURE:
       return {
         ...state,
-        sessionKey: null,
-        login: null,
-        subLogin: null,
+        loading: false,
+        error: action.payload?.error,
       }
     case ActionTypes.LOGOUT:
       return {
         ...state,
+        loading: true,
+      }
+    case ActionTypes.LOGOUT_SUCCESS:
+      return {
+        ...state,
         loading: false,
+        login: '',
+        subLogin: '',
         sessionKey: null,
       }
     default:
