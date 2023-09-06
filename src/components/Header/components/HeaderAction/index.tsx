@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { DefaultScreen, FullScreen, Logout } from '../../../../icons'
+
 import {
   HeaderContainer,
   LogoutButton,
@@ -9,10 +11,20 @@ import {
 } from './styles'
 
 import { LOGOUT } from '../../../../constants'
+import { logout } from '../../../../redux/actions'
+import { RootState } from '../../../../redux'
 
 export const HeaderAction = (): JSX.Element => {
+  const dispatch = useDispatch()
+
   const [widthWindow, setWidthWindow] = useState(window.screen.width)
   const [isFullScreen, setIsFullScreen] = useState(!!document.fullscreenElement)
+  const { login, subLogin } = useSelector((state: RootState) => state.auth)
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWidth)
+    return () => window.removeEventListener('resize', handleWidth)
+  }, [])
 
   const handleScreen = () => {
     if (document.fullscreenElement === null) {
@@ -28,29 +40,29 @@ export const HeaderAction = (): JSX.Element => {
     setWidthWindow(window.screen.width)
   }, [])
 
-  useEffect(() => {
-    window.addEventListener('resize', handleWidth)
-    return () => window.removeEventListener('resize', handleWidth)
+  const handleLogout = useCallback(() => {
+    dispatch(logout())
   }, [])
-
-  console.log(widthWindow)
 
   return (
     <HeaderContainer>
       <UserInfo>
-        some@email.com<Separator>:</Separator>sublogin
+        {login}
+        {subLogin && (
+          <>
+            <Separator>:</Separator>
+            {subLogin}
+          </>
+        )}
       </UserInfo>
-      <LogoutButton>
+      <LogoutButton onClick={handleLogout}>
         {widthWindow > 768 && `${LOGOUT}`}
-        <Logout />
+        <Logout className="logout-icon" />
       </LogoutButton>
       {document.fullscreenEnabled && (
         <ScreenButton onClick={handleScreen}>
-          {isFullScreen ? (
-            <DefaultScreen className="screen-icon" />
-          ) : (
-            <FullScreen className="screen-icon" />
-          )}
+          {isFullScreen && <DefaultScreen className="screen-icon" />}
+          {!isFullScreen && <FullScreen className="screen-icon" />}
         </ScreenButton>
       )}
     </HeaderContainer>

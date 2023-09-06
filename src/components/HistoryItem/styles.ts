@@ -18,13 +18,13 @@ export const Container = styled.div`
     margin-left: 11px;
   }
 
+  .dropdown-container--visible {
+    display: flex;
+  }
+
   &:hover {
     cursor: pointer;
     box-shadow: 0 1px 4px ${(props) => props.theme.colors.lightBlack};
-
-    .dropdown-container {
-      display: flex;
-    }
   }
 `
 
@@ -38,4 +38,13 @@ export const Indicator = styled.span<ContainerProps>`
     isError
       ? `background: ${theme.colors.red}; border: ${theme.borders.lightError}`
       : `background: ${theme.colors.green}; border: ${theme.borders.success}`}
+`
+
+export const Handler = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 19;
+  left: 0;
+  top: 0;
 `

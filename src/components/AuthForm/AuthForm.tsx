@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { Formik } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
 import { Notification, StyledInput, Button } from '../../components'
 
-import { AuthContext } from '../../hoc/AuthHoc'
+import { authenticate } from '../../redux/actions'
 
 import { Values } from './types'
 import { authValidationSchema } from './authFormValidation'
@@ -13,22 +14,21 @@ import {
   PASSWORD_LABEL,
   SUB_LOGIN_LABEL,
 } from '../../constants'
+import { RootState } from '../../redux'
 
 export const AuthForm: React.FC = () => {
-  const [isSubmittingError] = useState(false)
-  const [isLoading] = useState(false)
+  const dispatch = useDispatch()
+  const { loading, error } = useSelector((state: RootState) => state.auth)
 
-  const { setIsAuth } = useContext(AuthContext)
+  const handleSubmit = (values: Values) => {
+    dispatch(authenticate(values))
+  }
 
   return (
     <AuthContainer>
       <h1>API-консолька</h1>
-      {isSubmittingError && (
-        <Notification
-          type="error"
-          header="Ошибка"
-          description="Описание ошибки"
-        />
+      {error && (
+        <Notification type="error" header="Вход не вышел" description={error} />
       )}
       <Formik
         initialValues={{
@@ -37,10 +37,7 @@ export const AuthForm: React.FC = () => {
           password: '',
         }}
         validationSchema={authValidationSchema}
-        onSubmit={(values: Values): void => {
-          console.log(values, 'Values')
-          setIsAuth(true)
-        }}
+        onSubmit={handleSubmit}
       >
         {({ errors, touched }) => (
           <StyledForm>
@@ -69,7 +66,7 @@ export const AuthForm: React.FC = () => {
               type="submit"
               className="button-submit"
               disabled={!(Object.keys(errors).length === 0)}
-              isLoading={isLoading}
+              isLoading={loading}
             >
               {LOGIN}
             </Button>
